@@ -3,7 +3,7 @@
 Plugin Name: SAPE Links
 Plugin URI: http://wordpress.org/plugins/ram108-sape/
 Description: SAPE.RU ссылки для веб-мастеров. Добавляет виджет, макрос [sape], а также контекстные ссылки на страницы сайта.
-Version: 0.1
+Version: 0.2
 Author: Кирилл Бородин
 Author URI: http://profiles.wordpress.org/ram108
 License: GPL2

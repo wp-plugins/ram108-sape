@@ -48,6 +48,6 @@ if ( !file_exists( $sape_settings['file'] ) ) {
 if ( @$sape_settings['force_show_code'] || @$sape_settings['verbose'] || @$sape_settings['debug'] ) {
 
     add_action('admin_notices', function(){
-        echo '<div class="error"><p><b>SAPE Links</b>: Включен режим отладки sape. Смотрите HTML-код страниы (Ctrl-U) | <a href="'.admin_url('options-general.php?page=ram108-sape').'">Настройки</a></p></div>';
+        echo '<div class="error"><p><b>SAPE Links</b>: Включен режим отладки sape. Смотрите HTML-код страницы (Ctrl-U) | <a href="'.admin_url('options-general.php?page=ram108-sape').'">Настройки</a></p></div>';
     });
 }

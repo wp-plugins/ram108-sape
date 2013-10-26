@@ -35,7 +35,7 @@ add_action( 'admin_init', function(){
 	register_setting('ram108-sape', 'ram108-sape'); //, 'ram108_sape_settings_validate');
 });
 
-add_action('admin_menu', function(){
+if ( is_admin() ) add_action('admin_menu', function(){
 
 	add_options_page('SAPE Links settings', 'SAPE Links', 'manage_options', 'ram108-sape', 'ram108_sape_settings');
 });
@@ -93,7 +93,7 @@ function ram108_sape_settings() {
 		<p>1. <a href="<?php echo admin_url('widgets.php');?>">Виджет SAPE Links</a> для размещения ссылок в области виджетов сайта.
 		<p>2. <strong>Макрос для отображения ссылок</strong> на страницах сайта. Использование: <strong>[sape]</strong> или [sape count=3].</p>
 		<p>3. Автоматические <strong>контекстные ссылки</strong> при включенных настройках. Вывод ссылок в цитате <strong>не рекомендуется</strong>.</p>
-		<p>4. Вывод ссылок в теме оформления. Вставьте код <strong>do_shortcode('[sape count=3');</strong> там, где вы желаете выводить ссылки.</p>
+		<p>4. Вывод ссылок в теме оформления. Вставьте код <strong>&lt;?php do_shortcode('[sape count=3'); ?&gt;</strong> там, где вы желаете выводить ссылки.</p>
 
 		<h2>Настройка и активация плагина</h2>
 
