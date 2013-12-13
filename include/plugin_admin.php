@@ -124,7 +124,7 @@ class ram108_sape_admin extends ram108_sape_plugin {
 
 		// SAPE READY FLAG
 		
-		$this->settings->save(array('sape_ready' => 1));
+		if ( !$this->settings->sape_ready ) $this->settings->save(array('sape_ready' => 1));
 	}
 
 	function ram108_admin_notice() { 
