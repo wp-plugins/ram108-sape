@@ -8,7 +8,7 @@ Stable tag: 0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-SAPE.RU ссылки для веб-мастеров. Добавляет виджет, макрос [sape] и контекстные ссылки на страницы сайта.
+SAPE.RU ссылки для веб-мастеров. Добавляет виджет, макрос и контекстные ссылки на страницы сайта.
 
 == Description ==
 
