@@ -38,12 +38,23 @@ class ram108_sape_admin extends ram108_sape_plugin {
 							<fieldset>
 							<label>
 								<input type="checkbox" name="<?php echo $this->id?>[context]" value="1"<?php checked( $this->settings->context );?> />
-								В тексте записей и страниц сайта
+								<span title="Размещает контекстные ссылки в тексте сайта.">
+									Ссылки в тексте записей и страниц сайта
+								</span>
 							</label>
 							<br/>
 							<label>
 								<input type="checkbox" name="<?php echo $this->id?>[context_except]" value="1"<?php checked( $this->settings->context_except );?> />
-								<span title="Цитаты выводятся на страницах архивов, которые обновляются во время новой публикации. Размещение ссылок на страницах с часто меняющимся содержимом приводит к ошибкам SAPE.">В цитате (не рекомендуется)</span>
+								<span title="Цитаты выводятся на страницах архивов, которые обновляются во время новой публикации. Размещение ссылок на страницах с часто меняющимся содержимом приводит к ошибкам SAPE.">
+									Ссылки в цитате <i>(не рекомендуется)</i>
+								</span>
+							</label>
+							<br/>
+							<label>
+								<input type="checkbox" name="<?php echo $this->id?>[disable_texturize]" value="1"<?php checked( $this->settings->disable_texturize );?> />
+								<span title="Фильтр wptexturize обрабатывает исходный текст сайта, добавляя спецсимволы. В резльтате некоторые ссылки могут выпасть в ERROR. Более подробно читайте в FAQ.">
+									Отключить wptexturize <i>(только, если появились ERROR)</i>
+								</span>
 							</label>
 							</fieldset>
 						</td></tr>

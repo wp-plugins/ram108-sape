@@ -38,8 +38,15 @@ class ram108_sape extends ram108_sape_plugin {
 
 	function _sape_context(){
 
-		if ( $this->settings->context ) add_filter('the_content', array( $this, 'ram108_sape_context') );
-		if ( $this->settings->context_excerpt ) add_filter('the_excerpt', array( $this, 'ram108_sape_context') );
+		if ( $this->settings->context ) {
+			if ( $this->settings->disable_texturize ) remove_filter('the_content', 'wptexturize');
+			add_filter('the_content', array( $this, 'ram108_sape_context'), 100 );
+		}
+
+		if ( $this->settings->context_excerpt ) {
+			if ( $this->settings->disable_texturize ) remove_filter('the_excerpt', 'wptexturize');
+			add_filter('the_excerpt', array( $this, 'ram108_sape_context'), 100 );
+		}
 	}
 
 	function ram108_sape_context( $text ){
