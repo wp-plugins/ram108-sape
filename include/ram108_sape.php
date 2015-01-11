@@ -6,7 +6,7 @@ class ram108_sape extends ram108_sape_plugin {
 
 	function _init(){
 
-		if ( !$this->settings->sape_ready || !$this->settings->user ) return;
+		if ( !$this->settings->sape_ready ) return;
 
 		$this->_sape_init();
 		$this->_sape_context();
@@ -20,22 +20,18 @@ class ram108_sape extends ram108_sape_plugin {
 		global $sape, $sape_context;
 
 		if ( !defined('_SAPE_USER') ) {
+
 			define( '_SAPE_USER', $this->settings->user );
 			require_once( realpath ( $_SERVER['DOCUMENT_ROOT'] ).'/'._SAPE_USER.'/sape.php');
 		}
 
 		$options = array(
+			
 			'charset' => get_bloginfo('charset'),
 		);
 
 		$sape = new SAPE_client( $options );
 		$sape_context = new SAPE_context( $options );
-
-		// SETTINGS
-		if ( $this->settings->disable_texturize ) {
-			remove_filter('the_content', 'wptexturize');
-			remove_filter('the_excerpt', 'wptexturize');
-		}
 	}
 
 	// SAPE CONTEXT
@@ -43,10 +39,12 @@ class ram108_sape extends ram108_sape_plugin {
 	function _sape_context(){
 
 		if ( $this->settings->context ) {
+			if ( $this->settings->disable_texturize ) remove_filter('the_content', 'wptexturize');
 			add_filter('the_content', array( $this, 'ram108_sape_context'), 100 );
 		}
 
 		if ( $this->settings->context_excerpt ) {
+			if ( $this->settings->disable_texturize ) remove_filter('the_excerpt', 'wptexturize');
 			add_filter('the_excerpt', array( $this, 'ram108_sape_context'), 100 );
 		}
 	}
