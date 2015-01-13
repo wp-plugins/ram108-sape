@@ -2,16 +2,16 @@
 
 class ram108_sape_plugin {
 
-	protected 
+	protected
 		$id = 'ram108-sape',
 		$settings;
 
-	public 
+	public
 		$error = FALSE;
 
 	public function __construct(){
 
-		if ( FALSE == ( $this->settings = &$GLOBALS['ram108'] [$this->id] ['settings'] ) ) 
+		if ( FALSE == ( $this->settings = &$GLOBALS['ram108'] [$this->id] ['settings'] ) )
 			$this->settings = $GLOBALS['ram108'] [$this->id] ['settings'] = new ram108_sape_settings;
 
 		add_action('init', array( $this, '_init') );

@@ -45,7 +45,7 @@ class ram108_sape_settings {
 	private function _upgrade_data(){
 
 		if ( $this->data['ver'] < '0.3') $this->save( array(
-			'sape_ready'			=> '1',
+			'sape_ready'			=> 1,
 		));
 
 		$this->save( array(

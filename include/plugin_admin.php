@@ -1,14 +1,16 @@
 <?php
 
+// for admin session only
+
 if ( !is_admin() ) return;
 
-$ram108_sape_admin = new ram108_sape_admin;
+// class
 
 class ram108_sape_admin extends ram108_sape_plugin {
 
 	function _init(){
 
-		$this->_check_settings(); 
+		$this->_check_settings();
 
 		add_filter( 'plugin_action_links_' . plugin_basename( _RAM108_SAPE ), array( $this, '_admin_link' ) );
 		add_action( 'admin_init', array( $this, '_admin_init' ) );
@@ -26,7 +28,7 @@ class ram108_sape_admin extends ram108_sape_plugin {
 				<form method="post" action="options.php">
 
 					<?php settings_fields( $this->id ); ?><?php do_settings_sections( $this->id ); ?>
-					
+
 					<input type="hidden" name="<?php echo $this->id?>[ver]" value="<?php echo $this->settings->ver?>" />
 
 					<table class="form-table">
@@ -53,7 +55,7 @@ class ram108_sape_admin extends ram108_sape_plugin {
 							<label>
 								<input type="checkbox" name="<?php echo $this->id?>[disable_texturize]" value="1"<?php checked( $this->settings->disable_texturize );?> />
 								<span title="Фильтр wptexturize обрабатывает исходный текст сайта, добавляя спецсимволы. В резльтате некоторые ссылки могут выпасть в ERROR. Более подробно читайте в FAQ.">
-									Отключить wptexturize <i>(только, если появились ERROR)</i>
+									Отключить wptexturize <i>(только если появились ERROR)</i>
 								</span>
 							</label>
 							</fieldset>
@@ -72,10 +74,10 @@ class ram108_sape_admin extends ram108_sape_plugin {
 			<?php $this->_widget_area(); ?>
 
 		</div>
-		<?php 
+		<?php
 	}
 
-	function _widget_area(){ 
+	function _widget_area(){
 		?>
 		<div style="width: 30%; float: right">
 
@@ -88,10 +90,10 @@ class ram108_sape_admin extends ram108_sape_plugin {
 			<?php $this->_news_widget(); ?>
 
 		</div>
-		<?php 
+		<?php
 	}
 
-	function _news_widget(){ 
+	function _news_widget(){
 		?>
 		<h3>Новости плагина</h3>
 		<div class="news_widget">
@@ -114,14 +116,18 @@ class ram108_sape_admin extends ram108_sape_plugin {
 				font-family: inherit;
 			}
 		</style>
-		<?php 
+		<?php
 	}
 
 	// CHECK SETTINGS
 
 	function _check_settings(){
 
-		add_action( 'admin_notices', array( $this, 'ram108_admin_notice') );
+		global $sape;
+
+		add_action( 'admin_notices', array( $this, '_admin_notice') );
+
+		// CHECK IF READY
 
 		if ( !$this->settings->user ) {
 			$this->_error( '<div class="updated"><p><b>[ram108] SAPE Links</b>: Необходима активация плагина. Посетите <a href="'.admin_url('options-general.php?page='.$this->id).'">страницу настроек</a>.</p></div>' );
@@ -133,26 +139,35 @@ class ram108_sape_admin extends ram108_sape_plugin {
 			return;
 		}
 
-		// SAPE READY FLAG
-		
-		if ( !$this->settings->sape_ready ) $this->settings->save(array('sape_ready' => 1));
-	}
+		if ( @$sape->_version && $sape->_version < '1.2.1' ) {
+			$this->_error( '<div class="updated"><p><b>[ram108] SAPE Links</b>: Необходимо обновить файл <b>'.$file.'</b> до последней версии. <a href="http://www.sape.ru/get_user_files.php">Скачать сейчас</a>.</p></div>' );
+			return;
+		}
 
-	function ram108_admin_notice() { 
-		if ( $this->error ) foreach( $this->error as $message ) echo $message;
+		// SET READY FLAG
+
+		if ( !$this->settings->sape_ready ) $this->settings->save(array('sape_ready' => 1));
 	}
 
 	// OTHER
 
+	function _admin_notice() {
+		if ( $this->error ) foreach( $this->error as $message ) echo $message;
+	}
+
 	function _admin_link( $links ){
-	    return array_merge( array('<a href="'.admin_url('options-general.php?page='.$this->id).'">Настройки</a>'), $links );
+		return array_merge( array('<a href="'.admin_url('options-general.php?page='.$this->id).'">Настройки</a>'), $links );
 	}
 
 	function _admin_init(){
-		register_setting( $this->id, $this->id ); 
+		register_setting( $this->id, $this->id );
 	}
 
 	function _admin_menu(){
 		add_options_page('Настройки [ram108] SAPE Links', '[ram108] SAPE Links', 'manage_options', $this->id, array( $this, '_admin_page' ) );
 	}
 }
+
+// init class
+
+$ram108_sape_admin = new ram108_sape_admin;
