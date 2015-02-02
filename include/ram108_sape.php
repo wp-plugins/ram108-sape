@@ -33,7 +33,8 @@ class ram108_sape extends ram108_sape_plugin {
 		$sape_context = new SAPE_context( $options );
 
 		// sape counter
-		add_action('wp_footer', array( $this, '_sape_counter') );
+		if ( @$sape->_version && $sape->_version >= '1.2.1' )
+			add_action('wp_footer', array( $this, '_sape_counter') );
 	}
 
 	// SAPE CONTEXT

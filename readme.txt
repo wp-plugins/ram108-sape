@@ -3,8 +3,8 @@ Contributors: ram108
 Donate link: http://www.ram108.ru/donate
 Tags: sape, yandex, russian, seo, links, widget, plugin, sidebar, webmaster, ad, adsense, ram108
 Requires at least: 3.3.3
-Tested up to: 4.1
-Stable tag: 0.5
+Tested up to: 4.2
+Stable tag: 0.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,9 @@ Sape — это интеллектуальная система платного
 Фильтр wptexturize обрабатывает исходный текст сайта, заменяя некоторые пунктуационные знаки (например, тире) на спецсимволы. В результате контекстные ссылки, содержащие эти знаки, могут быть не распознаны системой sape и отмечены статусом ERROR. Если подобная проблема наблюдается на вашем сайте, отключите wptexturize в настройках плагина. В противном случае, не стоит отключать wptexturize.
 
 == Changelog ==
+
+= 0.5.1 =
+* Если sape.php не поддерживает счетчик, он не выводится
 
 = 0.5 =
 * Возможность размещения ссылок в блочном виде
