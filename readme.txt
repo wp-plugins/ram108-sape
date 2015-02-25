@@ -45,7 +45,7 @@ This plugin is in Russian language only.
 
 Понравился плагин SAPE Links? [Оцените его](https://wordpress.org/support/view/plugin-reviews/ram108-sape?rate=5#postform) в каталоге плагинов Wordpress или напишите обзор плагина на своем сайте.
 
-Рекомендую VPS от [DigitalOcean](https://www.digitalocean.com/?refcode=7a829b926d6a) или российский [iHor](http://www.ihor.ru/?from=51120).
+Рекомендую VPS от [DigitalOcean](https://www.digitalocean.com/?refcode=7a829b926d6a) или [российский iHor](http://www.ihor.ru/?from=51120).
 
 == Installation ==
 
