@@ -139,7 +139,7 @@ class ram108_sape_admin extends ram108_sape_plugin {
 			return;
 		}
 
-		if ( @$sape->_version && $sape->_version < '1.2.1' ) {
+		if ( @$sape->_version && $sape->_version < '1.2.7' ) {
 			$this->_error( '<div class="updated"><p><b>[ram108] SAPE Links</b>: Необходимо обновить файл <b>'.$file.'</b> до последней версии. <a href="http://www.sape.ru/get_user_files.php">Скачать сейчас</a>.</p></div>' );
 			return;
 		}
