@@ -12,6 +12,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 ===========================================================
 Copyright 2013-2015 by Kirill Borodin plugin@ram108.ru
 http://www.ram108.ru/donate
+OM SAI RAM
 */
 
 // PHP VERSION CHECK
