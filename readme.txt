@@ -43,7 +43,7 @@ This plugin is in Russian language only.
 
 = Благодарность =
 
-Понравился плагин SAPE Links? [Оцените его](https://wordpress.org/support/view/plugin-reviews/ram108-sape?rate=5#postform) в каталоге плагинов Wordpress или напишите обзор плагина на своем сайте.
+Понравился SAPE Links? [Оцените плагин](https://wordpress.org/support/view/plugin-reviews/ram108-sape?rate=5#postform) в каталоге Wordpress или напишите обзор плагина на своем сайте.
 
 Рекомендую VPS хостинг от российской [компании iHor](http://goo.gl/VqSMdg) или [DigitalOcean](http://goo.gl/BYr5qG).
 
@@ -96,10 +96,10 @@ Sape — это интеллектуальная система платного
 
 = 0.5.3 =
 * Опция мультисайт включена по умолчанию
-* Режим отладки вывода ссылок
+* Добавлен режим отладки вывода ссылок
 
 = 0.5.2 =
-* Рекомендация по обновлению версии sape.php до последней v1.2.7
+* Рекомендация по обновлению sape.php до последней версии 1.2.7
 
 = 0.5.1 =
 * Если sape.php не поддерживает счетчик, он не выводится
