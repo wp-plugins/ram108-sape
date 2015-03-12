@@ -25,8 +25,14 @@ class ram108_sape extends ram108_sape_plugin {
 		}
 
 		$options = array(
+			'multi_site' => true,
 			'charset' => get_bloginfo('charset'),
 			'show_counter_separately' => true,
+		);
+
+		if ( $this->settings->debug ) $options += array(
+			'force_show_code' => true,
+			'verbose' => true,
 		);
 
 		$sape = new SAPE_client( $options );
@@ -80,7 +86,7 @@ class ram108_sape extends ram108_sape_plugin {
 	// OTHER
 
 	function _sape_counter(){
-		global $sape; 
+		global $sape;
 		if ( method_exists($sape, 'return_counter') ) echo $sape->return_counter();
 	}
 

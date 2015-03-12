@@ -4,7 +4,7 @@ Donate link: http://www.ram108.ru/donate
 Tags: sape, yandex, russian, seo, links, widget, plugin, sidebar, webmaster, ad, adsense, ram108
 Requires at least: 3.3.3
 Tested up to: 4.2
-Stable tag: 0.5.2
+Stable tag: 0.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,7 +22,7 @@ This plugin is in Russian language only.
 
 = Плагин SAPE Links для веб-мастеров =
 
-[Sape.ru](http://www.sape.ru/r.zPvHCvTdOj.php "Перейти на сайт sape") — интеллектуальная система платного размещения ссылок. Легкие настройки плагина, вывод ссылок в любом месте сайта.
+[Sape.ru](http://goo.gl/2Iok0K "Перейти на сайт sape") — интеллектуальная система платного размещения ссылок. Легкие настройки плагина, вывод ссылок в любом месте сайта.
 
 = Возможности плагина =
 
@@ -38,14 +38,14 @@ This plugin is in Russian language only.
 
 = Системные требования =
 
-* [Требуется регистрация](http://www.sape.ru/r.zPvHCvTdOj.php "Перейти на сайт sape") на сайте sape.ru
+* [Требуется регистрация](http://goo.gl/2Iok0K "Перейти на сайт sape") на сайте sape.ru
 * Работает с php 5.0 и выше
 
 = Благодарность =
 
 Понравился плагин SAPE Links? [Оцените его](https://wordpress.org/support/view/plugin-reviews/ram108-sape?rate=5#postform) в каталоге плагинов Wordpress или напишите обзор плагина на своем сайте.
 
-Рекомендую VPS от [DigitalOcean](https://www.digitalocean.com/?refcode=7a829b926d6a) или [российский iHor](http://www.ihor.ru/?from=51120).
+Рекомендую VPS хостинг от российской [компании iHor](http://goo.gl/VqSMdg) или [DigitalOcean](http://goo.gl/BYr5qG).
 
 == Installation ==
 
@@ -68,7 +68,7 @@ Sape — это интеллектуальная система платного
 
 = Как я могу заработать на своем сайте? =
 
-Пройдя [простую регистрацию](http://www.sape.ru/r.zPvHCvTdOj.php "Перейти на сайт sape") в системе sape, ваш сайт может начать зарабатывать уже сейчас.
+Пройдя [простую регистрацию](http://goo.gl/2Iok0K "Перейти на сайт sape") в системе sape, ваш сайт может начать зарабатывать уже сейчас.
 
 = Рекомендации по размещению ссылок =
 
@@ -93,6 +93,10 @@ Sape — это интеллектуальная система платного
 Фильтр wptexturize обрабатывает исходный текст сайта, заменяя некоторые пунктуационные знаки (например, тире) на спецсимволы. В результате контекстные ссылки, содержащие эти знаки, могут быть не распознаны системой sape и отмечены статусом ERROR. Если подобная проблема наблюдается на вашем сайте, отключите wptexturize в настройках плагина. В противном случае, не стоит отключать wptexturize.
 
 == Changelog ==
+
+= 0.5.3 =
+* Опция мультисайт включена по умолчанию
+* Режим отладки вывода ссылок
 
 = 0.5.2 =
 * Рекомендация по обновлению версии sape.php до последней v1.2.7

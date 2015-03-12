@@ -32,7 +32,7 @@ class ram108_sape_admin extends ram108_sape_plugin {
 					<input type="hidden" name="<?php echo $this->id?>[ver]" value="<?php echo $this->settings->ver?>" />
 
 					<table class="form-table">
-						<tr valign="top"><th scope="row">Идентификатор _SAPE_USER<br/></th><td>
+						<tr valign="top"><th scope="row">Идентификатор _SAPE_USER</th><td>
 							<input class="regular-text" type="text" name="<?php echo $this->id?>[user]" value="<?php echo $this->settings->user; ?>" />
 							<br/><small><a href="http://www.ram108.ru/post/78" title="Перейти на страницу помощи" target="_blank">где взять идентификатор</a></small>
 						</td></tr>
@@ -56,6 +56,16 @@ class ram108_sape_admin extends ram108_sape_plugin {
 								<input type="checkbox" name="<?php echo $this->id?>[disable_texturize]" value="1"<?php checked( $this->settings->disable_texturize );?> />
 								<span title="Фильтр wptexturize обрабатывает исходный текст сайта, добавляя спецсимволы. В резльтате некоторые ссылки могут выпасть в ERROR. Более подробно читайте в FAQ.">
 									Отключить wptexturize <i>(только если появились ERROR)</i>
+								</span>
+							</label>
+							</fieldset>
+						</td></tr>
+						<tr valign="top"><th scope="row">Дополнительные опции</th><td>
+							<fieldset>
+							<label>
+								<input type="checkbox" name="<?php echo $this->id?>[debug]" value="1"<?php checked( $this->settings->debug );?> />
+								<span title="Выводит отладочный текст в местах, где должны отображаться ссылки. Смотрите HTML-код страницы.">
+									Режим отладки вывода ссылок
 								</span>
 							</label>
 							</fieldset>
@@ -141,7 +151,10 @@ class ram108_sape_admin extends ram108_sape_plugin {
 
 		if ( @$sape->_version && $sape->_version < '1.2.7' ) {
 			$this->_error( '<div class="updated"><p><b>[ram108] SAPE Links</b>: Необходимо обновить файл <b>'.$file.'</b> до последней версии. <a href="http://www.sape.ru/get_user_files.php">Скачать сейчас</a>.</p></div>' );
-			return;
+		}
+
+		if ( $this->settings->debug ) {
+			$this->_error( '<div class="updated"><p><b>[ram108] SAPE Links</b>: Включен режим отладки вывода ссылок. Посетите <a href="'.admin_url('options-general.php?page='.$this->id).'">страницу настроек</a>.</p></div>' );
 		}
 
 		// SET READY FLAG
