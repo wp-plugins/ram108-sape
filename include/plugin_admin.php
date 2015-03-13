@@ -1,6 +1,6 @@
 <?php
 
-// for admin session only
+// for admin sessions only
 
 if ( !is_admin() ) return;
 
@@ -10,7 +10,7 @@ class ram108_sape_admin extends ram108_sape_plugin {
 
 	function _init(){
 
-		$this->_check_settings();
+		$this->_admin_message();
 
 		add_filter( 'plugin_action_links_' . plugin_basename( _RAM108_SAPE ), array( $this, '_admin_link' ) );
 		add_action( 'admin_init', array( $this, '_admin_init' ) );
@@ -65,7 +65,7 @@ class ram108_sape_admin extends ram108_sape_plugin {
 							<label>
 								<input type="checkbox" name="<?php echo $this->id?>[debug]" value="1"<?php checked( $this->settings->debug );?> />
 								<span title="Выводит отладочный текст в местах, где должны отображаться ссылки. Смотрите HTML-код страницы.">
-									Режим отладки вывода ссылок
+									Включить режим отладки вывода ссылок
 								</span>
 							</label>
 							</fieldset>
@@ -78,6 +78,8 @@ class ram108_sape_admin extends ram108_sape_plugin {
 					<?php submit_button(); ?>
 
 				</form>
+
+			<p>Рекомендую VPS хостинг от российской <a href="http://goo.gl/VqSMdg" rel="nofollow" target="_blank">компании iHor</a> или <a href="http://goo.gl/BYr5qG" rel="nofollow" target="_blank">DigitalOcean</a>.<p>
 
 			</div>
 
@@ -129,15 +131,13 @@ class ram108_sape_admin extends ram108_sape_plugin {
 		<?php
 	}
 
-	// CHECK SETTINGS
+	// ADMIN MESSAGE
 
-	function _check_settings(){
+	function _admin_message(){
 
 		global $sape;
 
 		add_action( 'admin_notices', array( $this, '_admin_notice') );
-
-		// CHECK IF READY
 
 		if ( !$this->settings->user ) {
 			$this->_error( '<div class="updated"><p><b>[ram108] SAPE Links</b>: Необходима активация плагина. Посетите <a href="'.admin_url('options-general.php?page='.$this->id).'">страницу настроек</a>.</p></div>' );
@@ -151,15 +151,13 @@ class ram108_sape_admin extends ram108_sape_plugin {
 
 		if ( @$sape->_version && $sape->_version < '1.2.7' ) {
 			$this->_error( '<div class="updated"><p><b>[ram108] SAPE Links</b>: Необходимо обновить файл <b>'.$file.'</b> до последней версии. <a href="http://www.sape.ru/get_user_files.php">Скачать сейчас</a>.</p></div>' );
+			return;
 		}
 
 		if ( $this->settings->debug ) {
 			$this->_error( '<div class="updated"><p><b>[ram108] SAPE Links</b>: Включен режим отладки вывода ссылок. Посетите <a href="'.admin_url('options-general.php?page='.$this->id).'">страницу настроек</a>.</p></div>' );
+			return;
 		}
-
-		// SET READY FLAG
-
-		if ( !$this->settings->sape_ready ) $this->settings->save(array('sape_ready' => 1));
 	}
 
 	// OTHER

@@ -1,5 +1,9 @@
 <?php
 
+// for active sape.php only
+
+if ( !class_exists('SAPE_base') ) return;
+
 add_action('widgets_init', create_function('', "register_widget('ram108_sape_widget');" ) );
 
 class ram108_sape_widget extends WP_Widget {
