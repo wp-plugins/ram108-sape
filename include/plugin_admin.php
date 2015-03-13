@@ -51,13 +51,6 @@ class ram108_sape_admin extends ram108_sape_plugin {
 									Ссылки в цитате <i>(не рекомендуется)</i>
 								</span>
 							</label>
-							<br/>
-							<label>
-								<input type="checkbox" name="<?php echo $this->id?>[disable_texturize]" value="1"<?php checked( $this->settings->disable_texturize );?> />
-								<span title="Фильтр wptexturize обрабатывает исходный текст сайта, добавляя спецсимволы. В резльтате некоторые ссылки могут выпасть в ERROR. Более подробно читайте в FAQ.">
-									Отключить wptexturize <i>(только если появились ERROR)</i>
-								</span>
-							</label>
 							</fieldset>
 						</td></tr>
 						<tr valign="top"><th scope="row">Дополнительные опции</th><td>
@@ -66,6 +59,13 @@ class ram108_sape_admin extends ram108_sape_plugin {
 								<input type="checkbox" name="<?php echo $this->id?>[debug]" value="1"<?php checked( $this->settings->debug );?> />
 								<span title="Выводит отладочный текст в местах, где должны отображаться ссылки. Смотрите HTML-код страницы.">
 									Включить режим отладки вывода ссылок
+								</span>
+							</label>
+							<br/>
+							<label>
+								<input type="checkbox" name="<?php echo $this->id?>[disable_texturize]" value="1"<?php checked( $this->settings->disable_texturize );?> />
+								<span title="Фильтр wptexturize обрабатывает исходный текст сайта, добавляя спецсимволы. В результате некоторые контекстные ссылки могут выпасть в ERROR. Более подробно читайте в FAQ.">
+									Отключить wptexturize <i>(не рекомендуется)</i>
 								</span>
 							</label>
 							</fieldset>
