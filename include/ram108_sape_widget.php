@@ -1,5 +1,7 @@
 <?php
 
+// class
+
 class ram108_sape_widget extends WP_Widget {
 
 	function __construct() {
@@ -41,6 +43,12 @@ class ram108_sape_widget extends WP_Widget {
 
 	function widget( $args, $data ) {
 
+		// check if shortcode exists
+		if ( !shortcode_exists('sape') ) {
+			echo "\n\n<!-- [ram108] SAPE Links: Необходима активация плагина. Посетите страницу настроек. -->\n\n";
+			return;
+		}
+
 		extract($args);
 
 		$text = '';
@@ -52,5 +60,7 @@ class ram108_sape_widget extends WP_Widget {
 		echo (bool)$shortcode ? $before_widget.$text.$after_widget : '';
 	}
 }
+
+// init class
 
 add_action('widgets_init', create_function('', "register_widget('ram108_sape_widget');" ) );

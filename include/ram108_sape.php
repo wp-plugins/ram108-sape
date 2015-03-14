@@ -7,22 +7,18 @@ class ram108_sape extends ram108_sape_plugin {
 	function _init(){
 
 		// include sape.php
-
 		if ( $this->settings->user ) {
 			@define( '_SAPE_USER', $this->settings->user );
 			@include_once( realpath ( $_SERVER['DOCUMENT_ROOT'] ).'/'._SAPE_USER.'/sape.php');
 		}
 
-		// check if class exists
-
+		// check if plugin ready
 		if ( !class_exists('SAPE_base') ) return;
 
 		// init
-
 		$this->_sape_init();
 		$this->_sape_context();
 		$this->_sape_shortcode();
-		$this->_sape_counter();
 	}
 
 	// SAPE INIT
@@ -72,7 +68,6 @@ class ram108_sape extends ram108_sape_plugin {
 
 		add_filter( 'widget_text', 'do_shortcode' );
 		add_filter( 'the_excerpt', 'do_shortcode' );
-
 		add_shortcode('sape', array( $this, 'ram108_sape_shortcode') );
 	}
 
@@ -87,21 +82,15 @@ class ram108_sape extends ram108_sape_plugin {
 		return $text ? '<div class="ram108-slink">'.$text.'</div>' : '';
 	}
 
-	// SAPE COUNTER
+	// OTHER
 
-	function _sape_counter(){
-		add_action('wp_footer', array( $this, 'ram108_sape_counter') );
-	}
-
-	function ram108_sape_counter(){
+	function _wp_footer(){
 		global $sape;
 		if ( method_exists($sape, 'return_counter') ) echo $sape->return_counter();
 	}
 
-	// OTHER
-
 	function _register_scripts(){
-		wp_enqueue_style( $this->id, plugins_url('style.css', _RAM108_SAPE ) );
+		if ( !$this->settings->disable_css ) wp_enqueue_style( $this->id, plugins_url('style.css', _RAM108_SAPE ) );
 	}
 }
 

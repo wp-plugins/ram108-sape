@@ -32,10 +32,12 @@ class ram108_sape_admin extends ram108_sape_plugin {
 					<input type="hidden" name="<?php echo $this->id?>[ver]" value="<?php echo $this->settings->ver?>" />
 
 					<table class="form-table">
+
 						<tr valign="top"><th scope="row">Идентификатор _SAPE_USER</th><td>
 							<input class="regular-text" type="text" name="<?php echo $this->id?>[user]" value="<?php echo $this->settings->user; ?>" />
 							<br/><small><a href="http://www.ram108.ru/post/78" title="Перейти на страницу помощи" target="_blank">где взять идентификатор</a></small>
 						</td></tr>
+
 						<tr valign="top"><th scope="row">Контекстные ссылки</th><td>
 							<fieldset>
 							<label>
@@ -53,6 +55,7 @@ class ram108_sape_admin extends ram108_sape_plugin {
 							</label>
 							</fieldset>
 						</td></tr>
+
 						<tr valign="top"><th scope="row">Дополнительные опции</th><td>
 							<fieldset>
 							<label>
@@ -68,18 +71,29 @@ class ram108_sape_admin extends ram108_sape_plugin {
 									Отключить wptexturize <i>(не рекомендуется)</i>
 								</span>
 							</label>
+							<br/>
+							<label>
+								<input type="checkbox" name="<?php echo $this->id?>[disable_css]" value="1"<?php checked( $this->settings->disable_css );?> />
+								<span title="Плагин оформляет ссылки таким образом, чтобы визуально они воспринимались как простой текст. Вы можете отключить встроенные стили плагина.">
+									Не подключать встроенные CSS стили
+								</span>
+							</label>
 							</fieldset>
 						</td></tr>
+
 						<tr valign="top"><th scope="row">Виджет</th><td>
-							Используйте виджет <a href="<?php echo admin_url('widgets.php');?>">[ram108] SAPE Links</a> для размещения ссылок в области виджетов сайта.
+							<a href="<?php echo admin_url('widgets.php');?>">Используйте виджет [ram108] SAPE Links</a> для размещения ссылок в области виджетов сайта.
 						</td></tr>
+
+						<tr valign="top"><th scope="row">Управление ссылками</th><td>
+							<a href="http://goo.gl/2Iok0K" target="_blank">Перейти в панель управления</a> sape для веб-мастеров.
+						</td></tr>
+
 					</table>
 
 					<?php submit_button(); ?>
 
 				</form>
-
-			<p>Рекомендую VPS хостинг от российской <a href="http://goo.gl/VqSMdg" rel="nofollow" target="_blank">компании iHor</a> или <a href="http://goo.gl/BYr5qG" rel="nofollow" target="_blank">DigitalOcean</a>.<p>
 
 			</div>
 
@@ -94,12 +108,12 @@ class ram108_sape_admin extends ram108_sape_plugin {
 		<div style="width: 30%; float: right">
 
 			<h3>Использование плагина</h3>
-			<p><a href="http://www.ram108.ru/post/78" target="_blank">Посетите страницу плагина</a>, чтобы получить информацию по активации, настройке и использованию плагина.</p>
+			<p><a href="http://www.ram108.ru/post/78" target="_blank">Посетите страницу плагина</a> для информации по активации, настройке и использованию плагина.</p>
 
 			<h3>Ждем ваших отзывов</h3>
-			<p>Понравился плагин? <a href="http://wordpress.org/support/view/plugin-reviews/ram108-sape" target="_blank">Оцените его в каталоге плагинов Wordpress</a> или напишите обзор на своем сайте.</p>
+			<p><a href="http://wordpress.org/support/view/plugin-reviews/ram108-sape" target="_blank">Оцените плагин каталоге Wordpress</a> или напишите обзор на своем сайте.</p>
 
-			<?php $this->_news_widget(); ?>
+			<p>Рекомендую VPS хостинг от российской <a href="http://goo.gl/VqSMdg" target="_blank">компании iHor</a> или <a href="http://goo.gl/BYr5qG" target="_blank">DigitalOcean</a>.<p>
 
 		</div>
 		<?php
@@ -107,6 +121,13 @@ class ram108_sape_admin extends ram108_sape_plugin {
 
 	function _news_widget(){
 		?>
+		<style type="text/css">
+			.news_widget a{
+				font-size: 100%;
+				line-height: 1.2;
+				font-family: inherit;
+			}
+		</style>
 		<h3>Новости плагина</h3>
 		<div class="news_widget">
 		<?php
@@ -121,13 +142,6 @@ class ram108_sape_admin extends ram108_sape_plugin {
 			) );
 		?>
 		</div>
-		<style type="text/css">
-			.news_widget a{
-				font-size: 100%;
-				line-height: 1.2;
-				font-family: inherit;
-			}
-		</style>
 		<?php
 	}
 

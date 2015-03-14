@@ -4,7 +4,7 @@ Donate link: http://www.ram108.ru/donate
 Tags: sape, yandex, russian, seo, links, widget, plugin, sidebar, webmaster, ad, adsense, ram108
 Requires at least: 3.3.3
 Tested up to: 4.2
-Stable tag: 0.5.5
+Stable tag: 0.5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -94,8 +94,12 @@ Sape — это интеллектуальная система платного
 
 == Changelog ==
 
+= 0.5.6 =
+* Возможность отключить встроенные CSS стили
+* Виджет проверяет, настроен ли плагин
+
 = 0.5.5 =
-* Исправлена ошибка, в результате которой ссылки не показывались
+* Исправлена ошибка, в результате которой ссылки не выводились
 
 = 0.5.4 =
 * Улучшена проверка наличия клиентского кода sape.php
